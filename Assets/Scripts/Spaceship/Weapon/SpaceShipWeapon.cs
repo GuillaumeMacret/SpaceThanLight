@@ -27,6 +27,6 @@ public class SpaceShipWeapon : MonoBehaviour
     {
         target.Damage(damages);
         cooldownTimer = cooldown;
+        target = null;
     }
-
 }

@@ -134,8 +134,8 @@ GameObject:
   - component: {fileID: 310229832}
   - component: {fileID: 310229836}
   - component: {fileID: 310229835}
-  - component: {fileID: 310229834}
   - component: {fileID: 310229833}
+  - component: {fileID: 310229834}
   m_Layer: 0
   m_Name: Room3
   m_TagString: Untagged
@@ -151,7 +151,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 310229831}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5, y: 0, z: 0.52840316}
+  m_LocalPosition: {x: 0, y: 1.25, z: 0.52840316}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 722985278}
@@ -170,24 +170,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ship: {fileID: 722985274}
-  type: 0
+  type: 1
   roomDamage: 0
   roomHealth: 2
   m_RoomSize: 0
   m_RoomAiScore: 0
---- !u!135 &310229834
-SphereCollider:
+--- !u!58 &310229834
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 310229831}
+  m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &310229835
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -270,6 +273,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Rooms: []
+  m_Weapons: []
   health: 20
   damages: 0
 --- !u!65 &462501565
@@ -349,7 +353,7 @@ Transform:
   - {fileID: 1583370872}
   - {fileID: 772935873}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
@@ -445,8 +449,8 @@ GameObject:
   - component: {fileID: 647625241}
   - component: {fileID: 647625245}
   - component: {fileID: 647625244}
-  - component: {fileID: 647625243}
   - component: {fileID: 647625242}
+  - component: {fileID: 647625243}
   m_Layer: 0
   m_Name: Room1
   m_TagString: Untagged
@@ -462,7 +466,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 647625240}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 462501568}
@@ -481,24 +485,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ship: {fileID: 462501564}
-  type: 0
+  type: 1
   roomDamage: 0
   roomHealth: 2
   m_RoomSize: 0
   m_RoomAiScore: 0
---- !u!135 &647625243
-SphereCollider:
+--- !u!58 &647625243
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 647625240}
+  m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &647625244
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -581,6 +588,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Rooms: []
+  m_Weapons: []
   health: 20
   damages: 0
 --- !u!65 &722985275
@@ -659,7 +667,7 @@ Transform:
   - {fileID: 310229832}
   - {fileID: 1014576554}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &772935872
 GameObject:
@@ -719,8 +727,8 @@ GameObject:
   - component: {fileID: 1014576554}
   - component: {fileID: 1014576558}
   - component: {fileID: 1014576557}
-  - component: {fileID: 1014576556}
   - component: {fileID: 1014576555}
+  - component: {fileID: 1014576556}
   m_Layer: 0
   m_Name: Room4
   m_TagString: Untagged
@@ -736,7 +744,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1014576553}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5, y: 0, z: 0.52840316}
+  m_LocalPosition: {x: 0, y: -1.25, z: 0.52840316}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 722985278}
@@ -755,24 +763,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ship: {fileID: 722985274}
-  type: 0
+  type: 2
   roomDamage: 0
   roomHealth: 2
   m_RoomSize: 0
   m_RoomAiScore: 0
---- !u!135 &1014576556
-SphereCollider:
+--- !u!58 &1014576556
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1014576553}
+  m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1014576557
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -833,8 +844,8 @@ GameObject:
   - component: {fileID: 1583370872}
   - component: {fileID: 1583370876}
   - component: {fileID: 1583370875}
-  - component: {fileID: 1583370874}
   - component: {fileID: 1583370873}
+  - component: {fileID: 1583370874}
   m_Layer: 0
   m_Name: Room2
   m_TagString: Untagged
@@ -850,7 +861,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1583370871}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -1.75, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 462501568}
@@ -869,24 +880,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ship: {fileID: 462501564}
-  type: 0
+  type: 2
   roomDamage: 0
   roomHealth: 2
   m_RoomSize: 0
   m_RoomAiScore: 0
---- !u!135 &1583370874
-SphereCollider:
+--- !u!58 &1583370874
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1583370871}
+  m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1583370875
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -936,3 +950,47 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1583370871}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1874289106
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1874289108}
+  - component: {fileID: 1874289107}
+  m_Layer: 0
+  m_Name: ClickManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1874289107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1874289106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3cf5683078217843a6d63c74166efba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playership: {fileID: 462501564}
+--- !u!4 &1874289108
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1874289106}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.088602185, y: 0.14770955, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
