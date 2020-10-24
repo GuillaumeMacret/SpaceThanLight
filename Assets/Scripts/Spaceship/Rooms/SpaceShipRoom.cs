@@ -20,6 +20,7 @@ public class SpaceShipRoom : MonoBehaviour
     /* Damage inflicted to shields */
     public int roomShield = 0;
     private float m_shieldReloadCpt = 0;
+    public ShieldVisualEffectManager shieldVisualEffect;
 
     public SpaceShipRoom(RoomType type)
     {
@@ -33,6 +34,8 @@ public class SpaceShipRoom : MonoBehaviour
         {
             int oldShieldVal = roomShieldDamage;
             roomShieldDamage = Mathf.Clamp(roomShieldDamage + value, 0, roomShield);
+            shieldVisualEffect.activesprites -= (roomShieldDamage - oldShieldVal);
+            shieldVisualEffect.UpdateSpriteStatus();
             value -= roomShieldDamage - oldShieldVal;
         }
         roomDamage = Mathf.Clamp(roomDamage + value, 0, roomHealth);
@@ -78,6 +81,8 @@ public class SpaceShipRoom : MonoBehaviour
         {
             roomShieldDamage -= 1;
             m_shieldReloadCpt = 0;
+            shieldVisualEffect.activesprites = roomShield - roomShieldDamage;
+            shieldVisualEffect.UpdateSpriteStatus();
         }
     }
 

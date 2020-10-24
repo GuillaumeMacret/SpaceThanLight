@@ -153,7 +153,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 1.25, z: 0.52840316}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 671368856}
   m_Father: {fileID: 722985278}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -173,6 +174,9 @@ MonoBehaviour:
   type: 1
   roomDamage: 0
   roomHealth: 2
+  roomShieldDamage: 0
+  roomShield: 3
+  shieldVisualEffect: {fileID: 671368857}
   m_RoomSize: 0
   m_RoomAiScore: 0
 --- !u!58 &310229834
@@ -488,6 +492,9 @@ MonoBehaviour:
   type: 1
   roomDamage: 0
   roomHealth: 2
+  roomShieldDamage: 0
+  roomShield: 0
+  shieldVisualEffect: {fileID: 0}
   m_RoomSize: 0
   m_RoomAiScore: 0
 --- !u!58 &647625243
@@ -555,6 +562,52 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 647625240}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &671368855
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 671368856}
+  - component: {fileID: 671368857}
+  m_Layer: 0
+  m_Name: ShieldVisualEffectManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &671368856
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 671368855}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 310229832}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &671368857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 671368855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b737ac398812df0408587eaf58800f93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites: []
+  activesprites: 3
+  shieldSprite: {fileID: 7572584584495487356, guid: a18cb50ad04e9eb438255b01a28706bd, type: 3}
 --- !u!1 &722985273
 GameObject:
   m_ObjectHideFlags: 0
@@ -766,6 +819,9 @@ MonoBehaviour:
   type: 2
   roomDamage: 0
   roomHealth: 2
+  roomShieldDamage: 0
+  roomShield: 0
+  shieldVisualEffect: {fileID: 0}
   m_RoomSize: 0
   m_RoomAiScore: 0
 --- !u!58 &1014576556
@@ -883,6 +939,9 @@ MonoBehaviour:
   type: 2
   roomDamage: 0
   roomHealth: 2
+  roomShieldDamage: 0
+  roomShield: 0
+  shieldVisualEffect: {fileID: 0}
   m_RoomSize: 0
   m_RoomAiScore: 0
 --- !u!58 &1583370874
