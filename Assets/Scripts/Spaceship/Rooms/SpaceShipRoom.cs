@@ -6,7 +6,8 @@ public enum RoomType { EMPTY,GUN,SHIELD,PILOT};
 
 public class SpaceShipRoom : MonoBehaviour
 {
-    private static readonly float SHIELD_RELOAD_TIME = 2.5f;
+    private static readonly float DEFAULT_SHIELD_RELOAD_TIME = 2.5f;
+    public static readonly int MAX_SHIELDS = 5;
 
     // Model
     public Spaceship ship;
@@ -19,8 +20,15 @@ public class SpaceShipRoom : MonoBehaviour
     public int roomShieldDamage = 0;
     /* Damage inflicted to shields */
     public int roomShield = 0;
+    public float shieldReloadTime = DEFAULT_SHIELD_RELOAD_TIME;
     private float m_shieldReloadCpt = 0;
-    public ShieldVisualEffectManager shieldVisualEffect;
+    public ShieldVisualEffectManager visualEffectManager;
+
+    private void Awake()
+    {
+        visualEffectManager.activesprites = roomShield - roomShieldDamage;
+        visualEffectManager.UpdateSpriteStatus();
+    }
 
     public SpaceShipRoom(RoomType type)
     {
@@ -34,8 +42,8 @@ public class SpaceShipRoom : MonoBehaviour
         {
             int oldShieldVal = roomShieldDamage;
             roomShieldDamage = Mathf.Clamp(roomShieldDamage + value, 0, roomShield);
-            shieldVisualEffect.activesprites -= (roomShieldDamage - oldShieldVal);
-            shieldVisualEffect.UpdateSpriteStatus();
+            visualEffectManager.activesprites -= (roomShieldDamage - oldShieldVal);
+            visualEffectManager.UpdateSpriteStatus();
             value -= roomShieldDamage - oldShieldVal;
         }
         roomDamage = Mathf.Clamp(roomDamage + value, 0, roomHealth);
@@ -44,7 +52,12 @@ public class SpaceShipRoom : MonoBehaviour
 
     public void AddShieldPower()
     {
-        roomShield++;
+        if(roomShield < MAX_SHIELDS)
+        {
+            roomShield++;
+        }
+        visualEffectManager.activesprites = roomShield - roomShieldDamage;
+        visualEffectManager.UpdateSpriteStatus();
     }
 
     /**
@@ -56,6 +69,8 @@ public class SpaceShipRoom : MonoBehaviour
         if (roomShield > roomShieldDamage)
         {
             roomShield--;
+            visualEffectManager.activesprites = roomShield - roomShieldDamage;
+            visualEffectManager.UpdateSpriteStatus();
             return 1;
         }
         return 0;
@@ -75,25 +90,32 @@ public class SpaceShipRoom : MonoBehaviour
     {
         if (roomShieldDamage != 0)
         {
-            m_shieldReloadCpt += Time.deltaTime;
+            m_shieldReloadCpt = Mathf.Clamp(m_shieldReloadCpt + Time.deltaTime, 0, shieldReloadTime);
         }
-        if (m_shieldReloadCpt >= SHIELD_RELOAD_TIME)
+        if (m_shieldReloadCpt >= shieldReloadTime && roomShieldDamage > 0)
         {
             roomShieldDamage -= 1;
             m_shieldReloadCpt = 0;
-            shieldVisualEffect.activesprites = roomShield - roomShieldDamage;
-            shieldVisualEffect.UpdateSpriteStatus();
+            //FIXME NullReferenceException: Object reference not set to an instance of an object
+            visualEffectManager.activesprites = roomShield - roomShieldDamage;
+            visualEffectManager.UpdateSpriteStatus();
         }
+        
+        visualEffectManager.reloadProgressBar.fillAmount = m_shieldReloadCpt / shieldReloadTime;
     }
 
     // Controller
 
-    public void OnClick(Spaceship playerShip)
+    public void SetAsTargetFor(Spaceship playerShip, int weaponId)
     {
         //Debug.Log("Set target on " + this.name);
-        playerShip.SetTarget(this);
+        playerShip.SetTarget(this, weaponId);
     }
 
+    public void Untarget(Spaceship playerShip, int weaponId)
+    {
+        playerShip.SetTarget(null, weaponId);
+    }
 
 
     // View

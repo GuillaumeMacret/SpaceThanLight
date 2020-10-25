@@ -21,12 +21,12 @@ public class Spaceship : MonoBehaviour
         damages += value;
     }
 
-    public void SetTarget(SpaceShipRoom room)
+    public void SetTarget(SpaceShipRoom room, int weaponId)
     {
         //Debug.Log("Setting target for " + m_Weapons.Length + " weapons");
-        foreach (SpaceShipWeapon weap in m_Weapons)
+        if(weaponId < m_Weapons.Length)
         {
-            weap.target = room;
+            m_Weapons[weaponId].SetTarget(room);
         }
     }
 
