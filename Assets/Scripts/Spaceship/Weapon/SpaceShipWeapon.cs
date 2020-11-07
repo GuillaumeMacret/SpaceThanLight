@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,12 +14,14 @@ public class SpaceShipWeapon : MonoBehaviour
     private float cooldownTimer = 0;
 
     private SpaceShipRoom target;
+    private bool autofire = false;
     public GameObject targetCrosshair;
     public WeaponVisualEffectManager visualEffectManager;
 
     private void Awake()
     {
         targetCrosshair.SetActive(false);
+        visualEffectManager.statsText.text = string.Format("Damages : {0}\nSpeed : {1}",damages,cooldown);
     }
 
     private void Update()
@@ -38,8 +41,11 @@ public class SpaceShipWeapon : MonoBehaviour
     {
         target.Damage(damages);
         cooldownTimer = 0;
-        target = null;
-        targetCrosshair.SetActive(false);
+        if (!autofire)
+        {
+            target = null;
+            targetCrosshair.SetActive(false);
+        }
     }
 
     public void SetTarget(SpaceShipRoom target)
@@ -55,5 +61,10 @@ public class SpaceShipWeapon : MonoBehaviour
             targetCrosshair.SetActive(false);
         }
         
+    }
+
+    internal void SetAutofire(bool autofire)
+    {
+        this.autofire = autofire;
     }
 }

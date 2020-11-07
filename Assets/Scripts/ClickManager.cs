@@ -63,5 +63,6 @@ public class ClickManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha8)) { LastDigitInput = 7; }
         if (Input.GetKeyDown(KeyCode.Alpha9)) { LastDigitInput = 8; }
         if (Input.GetKeyDown(KeyCode.Alpha0)) { LastDigitInput = 9; }
+        if (Input.GetKeyDown(KeyCode.A)) { playership.SwitchAutoFire(); }
     }
 }

@@ -28,6 +28,7 @@ public class SpaceShipRoom : MonoBehaviour
     {
         visualEffectManager.activesprites = roomShield - roomShieldDamage;
         visualEffectManager.UpdateSpriteStatus();
+        ship = GetComponentInParent<Spaceship>();
     }
 
     public SpaceShipRoom(RoomType type)
@@ -52,7 +53,7 @@ public class SpaceShipRoom : MonoBehaviour
 
     public void AddShieldPower()
     {
-        if(roomShield < MAX_SHIELDS)
+        if(roomShield < MAX_SHIELDS && ship.CanAllocateShieldPower())
         {
             roomShield++;
         }

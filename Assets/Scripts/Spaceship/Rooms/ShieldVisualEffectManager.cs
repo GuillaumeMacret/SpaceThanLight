@@ -10,6 +10,7 @@ public class ShieldVisualEffectManager : MonoBehaviour
     public GameObject[] sprites;
     public int activesprites = 0;
     public Image reloadProgressBar;
+    public Text roomName;
 
     public GameObject shieldSprite;
 
@@ -24,6 +25,7 @@ public class ShieldVisualEffectManager : MonoBehaviour
             sprites[i].gameObject.SetActive(false);
         }
         UpdateSpriteStatus();
+        roomName.text = GetComponentInParent<SpaceShipRoom>().type.ToString();
     }
 
     public void UpdateSpriteStatus()
